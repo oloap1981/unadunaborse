@@ -8494,6 +8494,14 @@ button.close {
   content: '\0045';
 }
 
+.unaicon-add:before {
+  content: '\0046';
+}
+
+.unaicon-remove:before {
+  content: '\0047';
+}
+
 /*-------------------------------*/
 /* override e aggiunte a stili bootstrap      */
 /*-------------------------------*/
@@ -8655,14 +8663,6 @@ img {
 /*-------------------------------*/
 /*  @group Header               */
 /*-------------------------------*/
-.navbar {
-  min-height: inherit;
-}
-
-.navbar-collapse {
-  padding: 0;
-}
-
 /*-------------------------------*/
 /*  @end Header               */
 /*-------------------------------*/
@@ -8717,17 +8717,32 @@ img {
   border: none;
   float: left;
 }
+.configuratore .fixed-navbar-right li {
+  margin-left: -1px;
+}
+.configuratore .fixed-navbar-left li {
+  margin-right: -1px;
+}
 @media screen and (max-width: 767px) {
   .configuratore .fixed-navbar-right {
     float: right;
     margin: 0;
-    margin-top: 6px;
   }
   .configuratore .fixed-navbar-right li {
     float: left;
   }
   .configuratore .fixed-navbar-right li a {
-    padding: 10px;
+    padding: 15px;
+  }
+  .configuratore .fixed-navbar-left {
+    float: left;
+    margin: 0;
+  }
+  .configuratore .fixed-navbar-left li {
+    float: left;
+  }
+  .configuratore .fixed-navbar-left li a {
+    padding: 15px;
   }
 }
 .configuratore .navbar [class*='unaicon-']:before {
@@ -8739,10 +8754,29 @@ img {
     font-size: 1.3em;
   }
 }
+.configuratore .secondary-navbar {
+  top: 53px;
+  margin-top: 1px;
+}
+.configuratore .secondary-navbar a {
+  padding: 15px;
+  border-left: solid 1px #ccc;
+  border-right: solid 1px #ccc;
+}
+@media screen and (max-width: 767px) {
+  .configuratore .secondary-navbar .fixed-navbar-right, .configuratore .secondary-navbar .fixed-navbar-left {
+    margin: 0;
+  }
+}
+.configuratore .secondary-navbar h1 {
+  min-width: 200px;
+}
 .configuratore .active {
-  font-weight: bold;
   opacity: 1;
   position: relative;
+}
+.configuratore .active.selected {
+  font-weight: bold;
 }
 .configuratore .active:after, .configuratore .active:before {
   content: "";
@@ -8891,12 +8925,29 @@ img {
   /*Standard*/
 }
 .configuratore .accessori-thumb a {
+  position: relative;
   border: solid 1px transparent;
 }
-.configuratore .accessori-thumb a:hover {
+.configuratore .accessori-thumb a:hover, .configuratore .accessori-thumb a.added {
   border: solid 1px #dbd4d1;
   opacity: 1;
   text-decoration: none;
+}
+.configuratore .accessori-thumb a.added:before {
+  content: "\0047";
+  display: inline-block;
+  font-size: inherit;
+  text-rendering: auto;
+  font-family: 'unaduna';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-size: .65em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 .configuratore .accessori-thumb .swiper-button-prev {
   left: 0;

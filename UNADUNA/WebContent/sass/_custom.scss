@@ -33,6 +33,8 @@
 .unaicon-favourite:before{content:'\0043';}
 .unaicon-spinner:before{content:'\0044';}
 .unaicon-zoom:before{content:'\0045';}
+.unaicon-add:before{content:'\0046';}
+.unaicon-remove:before{content:'\0047';}
 
 
 /*-------------------------------*/
@@ -210,12 +212,12 @@ img {
 /*-------------------------------*/
 /*  @group Header               */
 /*-------------------------------*/
-.navbar {
-    min-height: inherit;
-}
-.navbar-collapse {
-    padding: 0;
-}
+// .navbar {
+//     min-height: inherit;
+// }
+// .navbar-collapse {
+//     padding: 0;
+// }
 
 
 
@@ -277,15 +279,36 @@ img {
         float: left;
     }
 
+    .fixed-navbar-right {
+        li {
+            margin-left: -1px;
+        }
+    }
+    .fixed-navbar-left {
+        li {
+            margin-right: -1px;
+        }
+    }
     @media screen and (max-width: $screen-xs-max) {
         .fixed-navbar-right {
             float: right;
             margin: 0;
-            margin-top: 6px;
+            // margin-top: 6px;
             li {
                 float: left;
                 a {
-                    padding: 10px;
+                    padding: 15px;
+                }
+            }
+        }
+        .fixed-navbar-left {
+            float: left;
+            margin: 0;
+            // margin-top: 6px;
+            li {
+                float: left;
+                a {
+                    padding: 15px;
                 }
             }
         }
@@ -300,9 +323,30 @@ img {
         }
     }
 
+    .secondary-navbar {
+        top: $navbar-height+3px;
+        margin-top: 1px;
+        a {
+            padding: 15px;
+            border-left: solid 1px #ccc;
+            border-right: solid 1px #ccc;
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            .fixed-navbar-right, .fixed-navbar-left {
+                margin: 0;
+                // margin-top: 6px;
+            }
+        }
+        h1 {
+            min-width: 200px;
+        }
+    }
+
     /* settaggio elementi grafici di default */
     .active { // stilizzazione con freccia
-        font-weight: bold;
+        &.selected {
+            font-weight: bold;
+        }
         opacity: 1;
         position: relative;
         &:after, &:before {
@@ -442,12 +486,29 @@ img {
             background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1)); /*Standard*/
         }
         a {
+            position: relative;
             border: solid 1px transparent;
-        }
-        a:hover {
-            border: solid 1px $standard-border-color;
-            opacity: 1;
-            text-decoration: none;
+            &:hover, &.added {
+                border: solid 1px $standard-border-color;
+                opacity: 1;
+                text-decoration: none;
+            }
+            &.added:before {
+                content:"\0047";
+                display: inline-block;
+                font-size: inherit;
+                text-rendering: auto;
+                font-family: 'unaduna';
+                font-style: normal;
+                font-weight: normal;
+                line-height: 1;
+                font-size: .65em;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
         }
         .swiper-button-prev {
             left: 0;
