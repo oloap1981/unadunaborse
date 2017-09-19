@@ -323,13 +323,38 @@ img {
         }
     }
 
-    .secondary-navbar {
+    .main-configurator-navbar {
         top: $navbar-height+3px;
         margin-top: 1px;
         a {
             padding: 15px;
             border-left: solid 1px #ccc;
             border-right: solid 1px #ccc;
+        }
+        .materiale {
+            padding-right: ($navbar-height)+10px;
+            @media screen and (max-width: $screen-xs-max) {
+                padding-right: ($navbar-height)-15px;
+                height: $navbar-height;
+            }
+            .tipologia {
+                display: block;
+                position: absolute;
+                height: ($navbar-height)-20px;
+                width: ($navbar-height)-20px;
+                top: 10px;
+                right: 10px;
+                box-shadow: inset 0 0 0 1px rgba(0,0,0,.15);
+                background-position: center center;
+                background-size:auto;
+                background-repeat: no-repeat;
+            }
+            .colore{
+            }
+            .pelle{
+
+            }
+
         }
         @media screen and (max-width: $screen-xs-max) {
             .fixed-navbar-right, .fixed-navbar-left {
