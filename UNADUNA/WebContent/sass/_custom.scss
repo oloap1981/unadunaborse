@@ -257,7 +257,7 @@ img {
         display: block;
         width: 130px;
         text-align: center;
-        background: url('../images/logo-small.jpg') no-repeat center center;
+        background: url('/images/logo-small.jpg') no-repeat center center;
         background-size: contain;
         @media screen and (max-width: $screen-xs-max) {
             width:100px;
@@ -304,6 +304,7 @@ img {
     .active { // stilizzazione con freccia
         font-weight: bold;
         opacity: 1;
+        position: relative;
         &:after, &:before {
             content: "";
             border-style: solid;
@@ -335,11 +336,11 @@ img {
         overflow: hidden;
         border-top: solid 1px $standard-border-color;
         background-color: $body-bg;
-        &:before {
+        & .first-divider {
             content: "";
             position: absolute;
             left: 0;
-            top: 45px;
+            // top: 45px;
             width: 100%;
             border-top: solid 1px $standard-border-color;
         }
@@ -376,6 +377,12 @@ img {
         .swiper-lazy-preloader {
             margin-top: 21px;
         }
+        img {
+            height: 50px;
+            @media screen and (min-height: 400px) {
+                height: auto;
+            }
+        }
     }
     .accessori-categoria {
         overflow: visible;
@@ -386,7 +393,6 @@ img {
             }
         }
         a {
-            padding: 10px 0;
             width: 100%;
             &:hover {
                 // border: solid 1px $standard-border-color;
@@ -397,6 +403,12 @@ img {
             &.active {
                 font-weight: bold;
                 opacity: 1;
+            }
+            font-size: 14px;
+            padding: 5px;
+            @media screen and (min-height: 400px) {
+                font-size: inherit;
+                padding: 10px 0;
             }
         }
     }

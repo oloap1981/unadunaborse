@@ -137,12 +137,19 @@ $(function() {
 });
 */
 $(window).ready(function(){
+    $('<div class="first-divider"></div>' ).appendTo('.accessori');
     $('#a-middle').css('margin-top', function () {
-        return ($(window).height() - $(this).height()) / 3
+        return ($(window).height() - $(this).height()) / 4
+    });
+    $('.first-divider').css('top', function () {
+        return ($('.swiper-container').height());
     });
 });
 $(window).resize(function(){
     $('#a-middle').css('margin-top', function () {
-        return ($(window).height() - $(this).height()) / 3
+        return ($(window).height() - $(this).height()) / 4
+    });
+    $('.first-divider').css('top', function () {
+        return ($('.swiper-container').height())
     });
 });
