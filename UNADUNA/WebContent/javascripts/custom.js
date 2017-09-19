@@ -1,8 +1,8 @@
 // $('.carousel').carousel()
-// $(document).on('click', '.yamm .dropdown-menu', function(e) {
-//     e.stopPropagation();
-// })
-// /*Tooltip*/
+$(document).on('click', '.yamm .dropdown-menu', function(e) {
+    e.stopPropagation();
+})
+/*Tooltip*/
 // $(function() {
 //     $('[data-toggle="tooltip"]').tooltip();
 // });

@@ -65,37 +65,47 @@
         </div>
         <!-- /.container -->
     </nav>
-    <nav class="navbar navbar-default navbar-fixed-top nomargin main-configurator-navbar">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <ul class="nav navbar-nav fixed-navbar-left">
-                        <li>
-                            <a href="#" class="active">scegli il modello</a>
-                        </li>
-                    </ul>
-                    <h1 class="navbar-brand navbar-left nomargin hidden-xs">Borsa #1</h1>
-                    <ul class="nav navbar-nav fixed-navbar-left">
-                        <li>
-                            <a href="#" class="active materiale"><span class="hidden-xs">colore </span><span class="tipologia colore" style="background-color:#C9FF26;"></span></a>
-                        </li>
-                        <li>
-                            <a href="#" class="active materiale"><span class="hidden-xs">pelle </span><span class="tipologia pelle" style="background-image: url('images/pelle.jpg');"></span></a>
-                        </li>
-                    </ul>
+    <div ng-controller="unadunaConfiguratorController as contr">
+        <nav class="navbar yamm navbar-default navbar-fixed-top nomargin main-configurator-navbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="nav navbar-nav fixed-navbar-left">
+                            <li class="dropdown yamm-fw">
+                                <a href="#" class="active dropdown-toggle" data-toggle="dropdown">scegli il modello</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <!-- Content container to add padding -->
+                                        <div class="yamm-content">
+                                            <div class="row">
+                                                <div class="col-lg-12 text-center"><button id="start3dbutton" type="button" ng-click="SendData(2)"/>carica borsa</button></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <h1 class="navbar-brand navbar-left nomargin hidden-xs">Borsa #1</h1>
+                        <ul class="nav navbar-nav fixed-navbar-left">
+                            <li>
+                                <a href="#" class="active materiale"><span class="hidden-xs">colore </span><span class="tipologia colore" style="background-color:#C9FF26;"></span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="active materiale"><span class="hidden-xs">pelle </span><span class="tipologia pelle" style="background-image: url('images/pelle.jpg');"></span></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <div ng-controller="unadunaConfiguratorController as contr">
+        </nav>
 	    <div class="container">
 	        <div class="row" id="a-middle">
 	            <div class="col-lg-12 text-center">
 	            		<div class="row">
-	            			<div class="col-lg-1"><input id="start3dbutton" type="button" value="Send" ng-click="SendData(2)"/></div>
+	            			<div class="col-lg-1"></div>
 		            		<div class="col-lg-11 text-center">
 		            			<div ng-show="spinnerVisible" id="spritespin"></div>
-		            			<md-progress-circular ng-show="loaderVisible" class="md-accent md-hue-1" md-diameter="50px"></md-progress-circular>
+		            			<md-progress-circular ng-show="loaderVisible" class="md-hue-2" md-diameter="80px"></md-progress-circular>
 		            		</div>
 	            		</div>
 	            </div>
@@ -153,6 +163,7 @@
     </div>
 
     <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
     <script src="javascripts/swiper.min.js"></script>
     <script src="javascripts/swiper.jquery.js"></script>
     <script src="javascripts/custom.js"></script>
