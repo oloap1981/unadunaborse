@@ -8694,7 +8694,7 @@ img {
   display: block;
   width: 130px;
   text-align: center;
-  background: url("/images/logo-small.jpg") no-repeat center center;
+  background: url("../images/logo-small.jpg") no-repeat center center;
   background-size: contain;
 }
 @media screen and (max-width: 767px) {
