@@ -1,0 +1,7 @@
+.sass-cache/
+*.css.map
+.DS_Store
+.settings
+.project
+.term-project
+.externalToolBuilders

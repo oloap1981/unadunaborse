@@ -8694,7 +8694,7 @@ img {
   display: block;
   width: 130px;
   text-align: center;
-  background: url("../images/logo-small.jpg") no-repeat center center;
+  background: url("/images/logo-small.jpg") no-repeat center center;
   background-size: contain;
 }
 @media screen and (max-width: 767px) {
@@ -8742,6 +8742,7 @@ img {
 .configuratore .active {
   font-weight: bold;
   opacity: 1;
+  position: relative;
 }
 .configuratore .active:after, .configuratore .active:before {
   content: "";
@@ -8770,11 +8771,10 @@ img {
   border-top: solid 1px #dbd4d1;
   background-color: #fff;
 }
-.configuratore .accessori:before {
+.configuratore .accessori .first-divider {
   content: "";
   position: absolute;
   left: 0;
-  top: 45px;
   width: 100%;
   border-top: solid 1px #dbd4d1;
 }
@@ -8811,6 +8811,14 @@ img {
 .configuratore .swiper-slide .swiper-lazy-preloader {
   margin-top: 21px;
 }
+.configuratore .swiper-slide img {
+  height: 50px;
+}
+@media screen and (min-height: 400px) {
+  .configuratore .swiper-slide img {
+    height: auto;
+  }
+}
 .configuratore .accessori-categoria {
   overflow: visible;
 }
@@ -8821,8 +8829,9 @@ img {
   border-left: solid 1px #dbd4d1;
 }
 .configuratore .accessori-categoria a {
-  padding: 10px 0;
   width: 100%;
+  font-size: 14px;
+  padding: 5px;
 }
 .configuratore .accessori-categoria a:hover {
   opacity: 1;
@@ -8832,6 +8841,12 @@ img {
 .configuratore .accessori-categoria a.active {
   font-weight: bold;
   opacity: 1;
+}
+@media screen and (min-height: 400px) {
+  .configuratore .accessori-categoria a {
+    font-size: inherit;
+    padding: 10px 0;
+  }
 }
 .configuratore .accessori-thumb {
   padding: 10px 0;
