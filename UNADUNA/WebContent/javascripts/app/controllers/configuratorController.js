@@ -1,4 +1,3 @@
-
 angular.module('unadunaModule').controller('unadunaConfiguratorController', function($http, $scope, $filter){
 	
 	$scope.PostDataResponse = '';
@@ -6,17 +5,33 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 	$scope.colors = ["rosso", "blu", "giallo"];
 	$scope.sizes = [720,960];
 	$scope.loaderVisible = false;
+	$scope.spinnerVisible = false;
 	
 	$scope.SelectFrame = function(){
 		$('#spritespin').spritespin("api").updateFrame($scope.radioSelected-1);
 	};
 	
-	$scope.SendData = function(){
+	$scope.SendData = function(accessorio){
+		
+		var hasAccessorio = false;
+		
+		switch(accessorio){
+			case 1:
+				hasAccessorio = true;
+				break;
+			case 2:
+				hasAccessorio = false;
+				break;
+			default:
+				hasAccessorio = false;
+				break;
+		}
 		
 		var data = {};
 		$scope.loaderVisible = true;
+		$scope.spinnerVisible = false;
 		
-		data['accessorio'] = $scope.accessorio;
+		data['accessorio'] = hasAccessorio;
 		
 		var widthSize = 960;
 		var heightSize = 540;
@@ -46,11 +61,22 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 	                frames: 8,
 	                framesX: 8,
 	                sense: -1,
-	                responsive: false,
+	                responsive: true,
 	                animate: false,
+	                mods: [
+	                    // module that changes frame on drag
+	                    'drag',
+	                    // module that eases out an animation after mouse is released
+	                    'ease',
+	                    // module to display array or sprite of images
+	                    '360'//,
+	                    // module that render and fades additional frames to somulate blur
+	                    // 'blur'
+	                ]//
 			};
 			$('#spritespin').spritespin(dataSpin);
 			$scope.loaderVisible = false;
+			$scope.spinnerVisible = true;
 		});
 		
 		$scope.nome = "";

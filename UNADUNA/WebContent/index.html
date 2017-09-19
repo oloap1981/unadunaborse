@@ -17,7 +17,7 @@
             content: ".";
             display: block;
             height: 0;
-            clear: both;
+            clear: both; 
             visibility: hidden;
         }
     </style>
@@ -79,8 +79,11 @@
 	        <div class="row" id="a-middle">
 	            <div class="col-lg-12 text-center">
 	            		<div class="row">
-	            			<div class="col-lg-1"><input type="button" value="Send" ng-click="SendData()"/></div>
-		            		<div class="col-lg-11"><div id="spritespin"></div></div>
+	            			<div class="col-lg-1"><input id="start3dbutton" type="button" value="Send" ng-click="SendData(2)"/></div>
+		            		<div class="col-lg-11 text-center">
+		            			<div ng-show="spinnerVisible" id="spritespin"></div>
+		            			<md-progress-circular ng-show="loaderVisible" class="md-accent md-hue-1" md-diameter="50px"></md-progress-circular>
+		            		</div>
 	            		</div>
 	            </div>
 	        </div>
@@ -105,16 +108,16 @@
 	                <div class="col-lg-12">
 	                    <div class="swiper-container accessori-thumb">
 	                        <div class="swiper-wrapper">
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item.jpg" class="swiper-lazy"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item2.jpg" class="swiper-lazy"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item3.jpg" class="swiper-lazy"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item4.jpg" class="swiper-lazy"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item.jpg" class="swiper-lazy"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item2.jpg" class="swiper-lazy"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item3.jpg" class="swiper-lazy"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item4.jpg" class="swiper-lazy"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item.jpg" class="swiper-lazy"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item2.jpg" class="swiper-lazy"><div class="swiper-lazy-preloader"></div></a></div>
+	                            <div class="swiper-slide"><a href="#"><img data-src="images/item.jpg" class="swiper-lazy" ng-click="SendData(1)"><div class="swiper-lazy-preloader"></div></a></div>
+	                            <div class="swiper-slide"><a href="#"><img data-src="images/item2.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
+	                            <div class="swiper-slide"><a href="#"><img data-src="images/item3.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
+	                            <div class="swiper-slide"><a href="#"><img data-src="images/item4.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
+	                            <div class="swiper-slide"><a href="#"><img data-src="images/item.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
+	                            <div class="swiper-slide"><a href="#"><img data-src="images/item2.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
+	                            <div class="swiper-slide"><a href="#"><img data-src="images/item3.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
+	                            <div class="swiper-slide"><a href="#"><img data-src="images/item4.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
+	                            <div class="swiper-slide"><a href="#"><img data-src="images/item.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
+	                            <div class="swiper-slide"><a href="#"><img data-src="images/item2.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
 	                        </div>
 	                        <div class="swiper-button-next swiper-button-black"></div>
 	                        <div class="swiper-button-prev swiper-button-black"></div>

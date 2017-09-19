@@ -105,6 +105,14 @@ var swiper = new Swiper('.accessori-thumb', {
    }
 });
 
+//var swiper = new Swiper('.accessori-thumb .swiper-slide', {
+//	opacity: 0.4
+//});
+//
+//var swiper = new Swiper('.accessori-thumb .swiper-slide-active', {
+//	opacity: 1
+//});
+
 /*------------------------------------*/
 /* settaggio spinner borse */
 /*------------------------------------*/
