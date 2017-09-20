@@ -8474,10 +8474,17 @@ button.close {
 }
 .yamm .yamm-content {
   padding: 20px 0;
+  overflow-x: auto;
 }
-.yamm .dropdown.yamm-fw .dropdown-menu {
-  left: 0;
-  right: 0;
+@media screen and (max-width: 991px) {
+  .yamm .dropdown.yamm-fw .dropdown-menu {
+    left: 0;
+    right: 0;
+    position: absolute;
+    float: left;
+    background-color: #fff;
+    border: solid 1px #dbd4d1;
+  }
 }
 
 /* Enable Bootstrap Hover Drop Downs */
@@ -8719,6 +8726,9 @@ img {
 .configuratore .container {
   min-height: 100%;
 }
+.configuratore .main-navbar {
+  z-index: 1100;
+}
 .configuratore .navbar-brand-centered {
   position: absolute;
   left: 50%;
@@ -8762,7 +8772,7 @@ img {
   .configuratore .fixed-navbar-right li {
     float: left;
   }
-  .configuratore .fixed-navbar-right li a {
+  .configuratore .fixed-navbar-right li a:not(.link) {
     padding: 15px;
   }
   .configuratore .fixed-navbar-left {
@@ -8772,8 +8782,8 @@ img {
   .configuratore .fixed-navbar-left li {
     float: left;
   }
-  .configuratore .fixed-navbar-left li a {
-    padding: 15px;
+  .configuratore .fixed-navbar-left li a:not(.link) {
+    padding: 0;
   }
 }
 .configuratore .navbar [class*='unaicon-']:before {
@@ -8789,29 +8799,29 @@ img {
   top: 53px;
   margin-top: 1px;
 }
-.configuratore .main-configurator-navbar a {
+.configuratore .main-configurator-navbar a.link {
   padding: 15px;
   border-left: solid 1px #dbd4d1;
   border-right: solid 1px #dbd4d1;
   z-index: 999;
 }
-.configuratore .main-configurator-navbar .open a, .configuratore .main-configurator-navbar .open a:hover, .configuratore .main-configurator-navbar .open a:active, .configuratore .main-configurator-navbar .open a:focus {
+.configuratore .main-configurator-navbar .open a.link, .configuratore .main-configurator-navbar .open a.link:hover, .configuratore .main-configurator-navbar .open a.link:active, .configuratore .main-configurator-navbar .open a.link:focus {
   position: relative;
   z-index: 1002;
   border-left: solid 1px #dbd4d1;
   border-right: solid 1px #dbd4d1;
   background-color: #fff !important;
 }
-.configuratore .main-configurator-navbar .materiale {
+.configuratore .main-configurator-navbar a.materiale {
   padding-right: 60px;
 }
 @media screen and (max-width: 767px) {
-  .configuratore .main-configurator-navbar .materiale {
+  .configuratore .main-configurator-navbar a.materiale {
     padding-right: 35px;
     height: 50px;
   }
 }
-.configuratore .main-configurator-navbar .materiale .tipologia {
+.configuratore .main-configurator-navbar a.materiale .tipologia {
   display: block;
   position: absolute;
   height: 30px;

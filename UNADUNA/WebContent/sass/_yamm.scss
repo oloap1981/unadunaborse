@@ -31,12 +31,18 @@
     // Content with padding
     .yamm-content {
         padding  : 20px 0;
-        
+        overflow-x: auto;
     }
     // Fullwidth menu
     .dropdown.yamm-fw .dropdown-menu {
-        left : 0;
-        right: 0;
+        @media screen and (max-width: $screen-sm-max) {
+            left : 0;
+            right: 0;
+            position: absolute;
+            float: left;
+            background-color: $body-bg;
+            border: solid 1px $standard-border-color;
+        }
     }
 }
 

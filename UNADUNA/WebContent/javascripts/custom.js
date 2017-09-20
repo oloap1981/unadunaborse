@@ -1,7 +1,7 @@
 // $('.carousel').carousel()
-$(document).on('click', '.yamm .dropdown-menu', function(e) {
-    e.stopPropagation();
-})
+// $(document).on('click', '.yamm .dropdown-menu', function(e) {
+//     e.stopPropagation();
+// })
 /*Tooltip*/
 // $(function() {
 //     $('[data-toggle="tooltip"]').tooltip();
@@ -152,6 +152,9 @@ $(window).ready(function(){
     $('.first-divider').css('top', function () {
         return ($('.swiper-container').height());
     });
+    var heightref = $(window).height() - ($('.main-configurator-navbar').height()*4);
+    $('.yamm-content').height(heightref);
+
 });
 $(window).resize(function(){
     $('#a-middle').css('margin-top', function () {
@@ -160,4 +163,6 @@ $(window).resize(function(){
     $('.first-divider').css('top', function () {
         return ($('.swiper-container').height())
     });
+    var heightref = $(window).height() - ($('.main-configurator-navbar').height()*4);
+    $('.yamm-content').height(heightref);
 });

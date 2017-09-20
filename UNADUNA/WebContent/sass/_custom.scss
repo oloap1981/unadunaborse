@@ -253,6 +253,9 @@ img {
 
     /* customizzazione navbar */
 
+    .main-navbar {
+        z-index: 1100;
+    }
     .navbar-brand-centered {
         position: absolute;
         left: 50%;
@@ -296,7 +299,7 @@ img {
             // margin-top: 6px;
             li {
                 float: left;
-                a {
+                a:not(.link) {
                     padding: 15px;
                 }
             }
@@ -307,8 +310,8 @@ img {
             // margin-top: 6px;
             li {
                 float: left;
-                a {
-                    padding: 15px;
+                a:not(.link) {
+                    padding: 0;
                 }
             }
         }
@@ -326,20 +329,20 @@ img {
     .main-configurator-navbar {
         top: $navbar-height+3px;
         margin-top: 1px;
-        a {
+        a.link {
             padding: 15px;
             border-left: solid 1px $standard-border-color;
             border-right: solid 1px $standard-border-color;
             z-index: 999;
         }
-        .open a, .open a:hover, .open a:active, .open a:focus {
+        .open a.link, .open a.link:hover, .open a.link:active, .open a.link:focus {
             position: relative;
             z-index: 1002;
             border-left: solid 1px $standard-border-color;
             border-right: solid 1px $standard-border-color;
             background-color: $body-bg !important;
         }
-        .materiale {
+        a.materiale {
             padding-right: ($navbar-height)+10px;
             @media screen and (max-width: $screen-xs-max) {
                 padding-right: ($navbar-height)-15px;

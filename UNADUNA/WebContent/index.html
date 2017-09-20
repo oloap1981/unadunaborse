@@ -24,7 +24,7 @@
 </head>
 
 <body class="configuratore" ng-app="unadunaModule">
-    <nav class="navbar navbar-default navbar-fixed-top nomargin" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top nomargin main-navbar" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header navbar-right">
@@ -51,13 +51,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
-                        <a href="#">About</a>
+                        <a href="#">Torna al sito</a>
                     </li>
                     <li>
                         <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -69,29 +66,52 @@
         <nav class="navbar yamm navbar-default navbar-fixed-top nomargin main-configurator-navbar">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 clearfix">
                         <ul class="nav navbar-nav fixed-navbar-left">
                             <li class="dropdown yamm-fw">
-                                <a href="#" class="active dropdown-toggle" data-toggle="dropdown">scegli il modello</a>
+                                <a href="#" class="active dropdown-toggle link" data-toggle="dropdown">scegli il modello</a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <!-- Content container to add padding -->
-                                        <div class="yamm-content">
-                                            <div class="row">
-                                                <div class="col-lg-12 text-center"><button id="start3dbutton" type="button" ng-click="SendData(2)"/>carica borsa</button></div>
+                                        <div class="yamm-content clearfix">
+                                            <div class="col-xs-12"><h4>Disegna la tua borsa</h4></div>
+                                            <div class="col-xs-6 col-sm-2 text-center">
+                                                <a href="#" id="start3dbutton" type="button" ng-click="SendData(2)"><img src="images/modello.jpg" /><h4>modello #1</h4></a>
+                                                <!-- <button id="start3dbutton" type="button" ng-click="SendData(2)"/>carica borsa</button></div> -->
                                             </div>
+                                            <div class="col-xs-6 col-sm-2 text-center">
+                                                <a href="#" id="start3dbutton" type="button" ng-click="SendData(2)"><img src="images/modello.jpg" /><h4>modello #1</h4></a>
+                                                <!-- <button id="start3dbutton" type="button" ng-click="SendData(2)"/>carica borsa</button></div> -->
+                                            </div>
+                                            <div class="col-xs-6 col-sm-2 text-center">
+                                                <a href="#" id="start3dbutton" type="button" ng-click="SendData(2)"><img src="images/modello.jpg" /><h4>modello #1</h4></a>
+                                                <!-- <button id="start3dbutton" type="button" ng-click="SendData(2)"/>carica borsa</button></div> -->
+                                            </div>
+                                            <div class="col-xs-6 col-sm-2 text-center">
+                                                <a href="#" id="start3dbutton" type="button" ng-click="SendData(2)"><img src="images/modello.jpg" /><h4>modello #1</h4></a>
+                                                <!-- <button id="start3dbutton" type="button" ng-click="SendData(2)"/>carica borsa</button></div> -->
+                                            </div>
+                                            <div class="col-xs-6 col-sm-2 text-center">
+                                                <a href="#" id="start3dbutton" type="button" ng-click="SendData(2)"><img src="images/modello.jpg" /><h4>modello #1</h4></a>
+                                                <!-- <button id="start3dbutton" type="button" ng-click="SendData(2)"/>carica borsa</button></div> -->
+                                            </div>
+                                            <div class="col-xs-6 col-sm-2 text-center">
+                                                <a href="#" id="start3dbutton" type="button" ng-click="SendData(2)"><img src="images/modello.jpg" /><h4>modello #1</h4></a>
+                                                <!-- <button id="start3dbutton" type="button" ng-click="SendData(2)"/>carica borsa</button></div> -->
+                                            </div>
+                                            <hr />
+                                            <div class="col-xs-12"><h4>Lasciati ispirare</h4></div>
                                         </div>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
-                        <h1 class="navbar-brand navbar-left nomargin hidden-xs">Borsa #1</h1>
+                        <h1 class="navbar-brand navbar-left nomargin hidden-xs" id="edit-text">Borsa #1</h1>
                         <ul class="nav navbar-nav fixed-navbar-left">
                             <li>
-                                <a href="#" class="active materiale"><span class="hidden-xs">colore </span><span class="tipologia colore" style="background-color:#C9FF26;"></span></a>
+                                <a href="#" class="active materiale link"><span class="hidden-xs">colore </span><span class="tipologia colore" style="background-color:#C9FF26;"></span></a>
                             </li>
                             <li>
-                                <a href="#" class="active materiale"><span class="hidden-xs">pelle </span><span class="tipologia pelle" style="background-image: url('images/pelle.jpg');"></span></a>
+                                <a href="#" class="active materiale link"><span class="hidden-xs">pelle </span><span class="tipologia pelle" style="background-image: url('images/pelle.jpg');"></span></a>
                             </li>
                         </ul>
                     </div>
@@ -102,8 +122,7 @@
 	        <div class="row" id="a-middle">
 	            <div class="col-lg-12 text-center">
 	            		<div class="row">
-	            			<div class="col-lg-1"></div>
-		            		<div class="col-lg-11 text-center">
+		            		<div class="col-lg-12 text-center">
 		            			<div ng-show="spinnerVisible" id="spritespin"></div>
 		            			<md-progress-circular ng-show="loaderVisible" class="md-hue-2" md-diameter="80px"></md-progress-circular>
 		            		</div>
@@ -179,6 +198,31 @@
 	<!-- Angular Material Library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 	<script type="text/javascript" src="javascripts/spritespin.js"></script>
+    <script>
+    /* edito il nome della borsa nel configuratore */
+    $('#edit-text').click(function(){
+        var name = $(this).text();
+        $(this).html('');
+        $('<input style="margin-top: -10px; margin-left: -3px;"></input>')
+        .attr({
+            'type': 'text',
+            'name': 'fname',
+            'id': 'txt_fullname',
+            'size': '10',
+            'value': name
+        })
+        .appendTo('#edit-text');
+        $('#txt_fullname').focus();
+
+    });
+
+    $(document).on('blur','#txt_fullname', function(){
+        var name = $(this).val();
+        //alert('Make an AJAX call and pass this parameter >> name=' + name);
+        $('#edit-text').text(name);
+    });
+
+    </script>
 </body>
 
 </html>
