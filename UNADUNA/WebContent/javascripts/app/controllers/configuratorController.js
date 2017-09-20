@@ -1,23 +1,88 @@
 angular.module('unadunaModule').controller('unadunaConfiguratorController', function($http, $scope, $filter){
 	
-	$scope.PostDataResponse = '';
-	$scope.radioSelected = 1;
-	$scope.colors = ["rosso", "blu", "giallo"];
-	$scope.sizes = [720,960];
-	$scope.loaderVisible = false;
-	$scope.spinnerVisible = false;
+	var configController = this;
 	
-	$scope.SelectFrame = function(){
-		$('#spritespin').spritespin("api").updateFrame($scope.radioSelected-1);
+	configController.accessoriBorsa = [
+	    	{
+	    		datasource: "images/item.jpg",
+	    		idaccessorio: 1,
+	    		attivo: false
+	    	},
+	    	{
+	    		datasource: "images/item2.jpg",
+	    		idaccessorio: 2,
+	    		attivo: false
+	    	},
+	    	{
+	    		datasource: "images/item3.jpg",
+	    		idaccessorio: 2,
+	    		attivo: false
+	    	},
+	    	{
+	    		datasource: "images/item4.jpg",
+	    		idaccessorio: 2,
+	    		attivo: false
+	    	},
+	    	{
+	    		datasource: "images/item.jpg",
+	    		idaccessorio: 2,
+	    		attivo: false
+	    	},
+	    	{
+	    		datasource: "images/item2.jpg",
+	    		idaccessorio: 2,
+	    		attivo: false
+	    	},
+	    	{
+	    		datasource: "images/item3.jpg",
+	    		idaccessorio: 2,
+	    		attivo: false
+	    	},
+	    	{
+	    		datasource: "images/item4.jpg",
+	    		idaccessorio: 2,
+	    		attivo: false
+	    	},
+	    	{
+	    		datasource: "images/item.jpg",
+	    		idaccessorio: 2,
+	    		attivo: false
+	    	},
+	    	{
+	    		datasource: "images/item2.jpg",
+	    		idaccessorio: 2,
+	    		attivo: false
+	    	},
+	];
+	
+	configController.visibleManager = {
+			loaderVisible: false,
+			spinnerVisible: false
 	};
 	
-	$scope.SendData = function(accessorio){
+	configController.cleanAccessori = function(){
+		for(var i = 0; i < configController.accessoriBorsa.length; i++){
+			configController.accessoriBorsa[i].attivo = false;
+		}
+	}
+	
+	configController.SendData = function(accessorio){
+		
+		//attivo il loader e tolgo lo spinner
+		configController.visibleManager.loaderVisible = true;
+		configController.visibleManager.spinnerVisible = false;
+		
+		if(accessorio.attivo){
+			accessorio.attivo = false;
+		} else {
+			configController.cleanAccessori();
+			accessorio.attivo = true;	
+		}
 		
 		var hasAccessorio = false;
-		
-		switch(accessorio){
+		switch(accessorio.idaccessorio){
 			case 1:
-				hasAccessorio = true;
+				hasAccessorio = true && accessorio.attivo;
 				break;
 			case 2:
 				hasAccessorio = false;
@@ -27,15 +92,12 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 				break;
 		}
 		
-		var data = {};
-		$scope.loaderVisible = true;
-		$scope.spinnerVisible = false;
+		//parametri di chiamata
+		var data = {
+				accessorio: hasAccessorio
+		};
 		
-		data['accessorio'] = hasAccessorio;
-		
-		var widthSize = 960;
-		var heightSize = 540;
-		
+		//configurazioni di chiamata
 		var config = {
             headers : {
                 'Content-Type': 'application/json'
@@ -46,17 +108,16 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 		$http.post('https://cnohm5u3jh.execute-api.eu-central-1.amazonaws.com/configuratorstage',data, config)
 		.then(function(success){
 			
-			$scope.PostDataResponse = success.data.responseString;
-			
 			//ricompongo la stringa base64 dell'immagine spritesheet che ho creato su Lambda
 			var image = 'data:image/jpg;base64,';
 			for(var i = 0; i < success.data.imageArray.length; i++){
 				image = image + success.data.imageArray[i];
 			}
 			
+			//ho ricevuto i dati, attivo lo spinner per la visualizzazione 3D
 			var dataSpin = {
-					width: widthSize,
-	                height: heightSize,
+					width: 960,
+	                height: 540,
 	                source: image,
 	                frames: 8,
 	                framesX: 8,
@@ -64,24 +125,14 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 	                responsive: true,
 	                animate: false,
 	                mods: [
-	                    // module that changes frame on drag
 	                    'drag',
-	                    // module that eases out an animation after mouse is released
 	                    'ease',
-	                    // module to display array or sprite of images
-	                    '360'//,
-	                    // module that render and fades additional frames to somulate blur
-	                    // 'blur'
-	                ]//
+	                    '360'
+	                ]
 			};
 			$('#spritespin').spritespin(dataSpin);
-			$scope.loaderVisible = false;
-			$scope.spinnerVisible = true;
+			configController.visibleManager.loaderVisible = false;
+			configController.visibleManager.spinnerVisible = true;
 		});
-		
-		$scope.nome = "";
-		$scope.cognome = "";
-		$scope.responseString = "";
-		
 	};
 });

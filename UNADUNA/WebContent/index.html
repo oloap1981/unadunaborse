@@ -78,7 +78,7 @@
                                         <!-- Content container to add padding -->
                                         <div class="yamm-content">
                                             <div class="row">
-                                                <div class="col-lg-12 text-center"><button id="start3dbutton" type="button" ng-click="SendData(2)"/>carica borsa</button></div>
+                                                <div class="col-lg-12 text-center"><button id="start3dbutton" type="button" ng-click="contr.SendData(2)"/>carica borsa</button></div>
                                             </div>
                                         </div>
                                     </li>
@@ -104,8 +104,8 @@
 	            		<div class="row">
 	            			<div class="col-lg-1"></div>
 		            		<div class="col-lg-11 text-center">
-		            			<div ng-show="spinnerVisible" id="spritespin"></div>
-		            			<md-progress-circular ng-show="loaderVisible" class="md-hue-2" md-diameter="80px"></md-progress-circular>
+		            			<div ng-show="contr.visibleManager.spinnerVisible" id="spritespin"></div>
+		            			<md-progress-circular ng-show="contr.visibleManager.loaderVisible" class="md-hue-2" md-diameter="80px"></md-progress-circular>
 		            		</div>
 	            		</div>
 	            </div>
@@ -131,17 +131,13 @@
 	                <div class="col-lg-12">
 	                    <div class="swiper-container accessori-thumb">
 	                        <div class="swiper-wrapper">
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item.jpg" class="swiper-lazy" ng-click="SendData(1)"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#" class="added"><img data-src="images/item2.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item3.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item4.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item2.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item3.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item4.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
-	                            <div class="swiper-slide"><a href="#"><img data-src="images/item2.jpg" class="swiper-lazy" ng-click="SendData(2)"><div class="swiper-lazy-preloader"></div></a></div>
-	                        </div>
+	                        		<div class="swiper-slide" ng-repeat="item in contr.accessoriBorsa">
+	                        			<a href="#" ng-class="{added:item.attivo === true}">
+	                        				<img ng-src="{{item.datasource}}" class="swiper-lazy" ng-click="contr.SendData(item)">
+                        					<div class="swiper-lazy-preloader"></div>
+                        				</a>
+	                        		</div>
+	                        	</div>
 	                        <div class="swiper-button-next swiper-button-black"></div>
 	                        <div class="swiper-button-prev swiper-button-black"></div>
 	                    </div>
