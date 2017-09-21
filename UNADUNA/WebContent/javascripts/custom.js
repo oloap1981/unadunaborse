@@ -152,7 +152,7 @@ $(window).ready(function(){
     $('.first-divider').css('top', function () {
         return ($('.swiper-container').height());
     });
-    var heightref = $(window).height() - ($('.main-configurator-navbar').height()*4);
+    var heightref = $(window).height() - ($('.main-configurator-navbar').height()+100);
     $('.yamm-content').height(heightref);
 
 });
@@ -163,6 +163,6 @@ $(window).resize(function(){
     $('.first-divider').css('top', function () {
         return ($('.swiper-container').height())
     });
-    var heightref = $(window).height() - ($('.main-configurator-navbar').height()*4);
+    var heightref = $(window).height() - ($('.main-configurator-navbar').height()+100);
     $('.yamm-content').height(heightref);
 });

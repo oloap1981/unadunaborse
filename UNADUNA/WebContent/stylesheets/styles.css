@@ -8476,10 +8476,14 @@ button.close {
   padding: 20px 0;
   overflow-x: auto;
 }
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 767px) {
   .yamm .dropdown.yamm-fw .dropdown-menu {
     left: 0;
     right: 0;
+  }
+}
+@media screen and (max-width: 991px) {
+  .yamm .dropdown.yamm-fw .dropdown-menu {
     position: absolute;
     float: left;
     background-color: #fff;

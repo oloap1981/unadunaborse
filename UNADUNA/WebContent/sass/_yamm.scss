@@ -35,9 +35,12 @@
     }
     // Fullwidth menu
     .dropdown.yamm-fw .dropdown-menu {
-        @media screen and (max-width: $screen-sm-max) {
+        @media screen and (max-width: $screen-xs-max) {
             left : 0;
             right: 0;
+        }
+        @media screen and (max-width: $screen-sm-max) {
+
             position: absolute;
             float: left;
             background-color: $body-bg;
