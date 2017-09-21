@@ -147,7 +147,7 @@ $(function() {
 $(window).ready(function(){
     $('<div class="first-divider"></div>' ).appendTo('.accessori');
     $('#a-middle').css('margin-top', function () {
-        return ($(window).height() - $(this).height()) / 4
+        return ($(window).height() - $(this).height()) / 6
     });
     $('.first-divider').css('top', function () {
         return ($('.swiper-container').height());
@@ -158,7 +158,7 @@ $(window).ready(function(){
 });
 $(window).resize(function(){
     $('#a-middle').css('margin-top', function () {
-        return ($(window).height() - $(this).height()) / 4
+        return ($(window).height() - $(this).height()) / 6
     });
     $('.first-divider').css('top', function () {
         return ($('.swiper-container').height())

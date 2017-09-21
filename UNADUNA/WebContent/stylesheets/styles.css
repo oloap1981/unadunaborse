@@ -8466,7 +8466,6 @@ button.close {
   position: relative;
 }
 .yamm .dropdown-menu {
-  left: auto;
   box-shadow: 0px 0px 0px transparent;
   border: solid 1px #dbd4d1;
   margin: 0;
@@ -8739,7 +8738,7 @@ img {
   display: block;
   width: 130px;
   text-align: center;
-  background: url("../images/logo-small.jpg") no-repeat center center;
+  background: url("/images/logo-small.jpg") no-repeat center center;
   background-size: contain;
 }
 @media screen and (max-width: 767px) {
@@ -8761,6 +8760,9 @@ img {
   margin-left: 10px;
   border: none;
   float: left;
+}
+.configuratore .fixed-navbar-right {
+  float: right;
 }
 .configuratore .fixed-navbar-right li {
   margin-left: -1px;
@@ -8800,7 +8802,6 @@ img {
   }
 }
 .configuratore .main-configurator-navbar {
-  top: 53px;
   margin-top: 1px;
 }
 .configuratore .main-configurator-navbar a.link {
@@ -8894,7 +8895,7 @@ img {
   width: 100%;
   border-top: solid 1px #dbd4d1;
 }
-@media screen and (min-height: 400px) {
+@media screen and (min-height: 650px) {
   .configuratore .accessori:after {
     bottom: 70px;
   }
@@ -8903,7 +8904,7 @@ img {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-@media screen and (min-height: 400px) {
+@media screen and (min-height: 650px) {
   .configuratore .accessori .riepilogo {
     margin-top: 15px;
     margin-bottom: 15px;
@@ -8937,7 +8938,7 @@ img {
 .configuratore .swiper-slide img {
   height: 50px;
 }
-@media screen and (min-height: 400px) {
+@media screen and (min-height: 650px) {
   .configuratore .swiper-slide img {
     height: auto;
   }
@@ -8968,7 +8969,6 @@ img {
 @media screen and (min-height: 400px) {
   .configuratore .accessori-categoria a {
     font-size: inherit;
-    padding: 10px 0;
   }
 }
 .configuratore .accessori-thumb {

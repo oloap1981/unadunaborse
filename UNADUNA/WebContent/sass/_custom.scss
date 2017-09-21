@@ -283,6 +283,8 @@ img {
     }
 
     .fixed-navbar-right {
+
+            float: right;
         li {
             margin-left: -1px;
         }
@@ -327,7 +329,7 @@ img {
     }
 
     .main-configurator-navbar {
-        top: $navbar-height+3px;
+        // top: $navbar-height+3px;
         margin-top: 1px;
         a.link {
             padding: 15px;
@@ -426,7 +428,7 @@ img {
             bottom: 55px;
             width: 100%;
             border-top: solid 1px $standard-border-color;
-            @media screen and (min-height: 400px) {
+            @media screen and (min-height: 650px) {
                 bottom: 70px;
             }
 
@@ -434,7 +436,7 @@ img {
         .riepilogo {
             margin-top: 5px;
             margin-bottom: 5px;
-            @media screen and (min-height: 400px) {
+            @media screen and (min-height: 650px) {
                 margin-top: 15px;
                 margin-bottom: 15px;
             }
@@ -466,7 +468,7 @@ img {
         }
         img {
             height: 50px;
-            @media screen and (min-height: 400px) {
+            @media screen and (min-height: 650px) {
                 height: auto;
             }
         }
@@ -497,7 +499,7 @@ img {
             padding: 5px;
             @media screen and (min-height: 400px) {
                 font-size: inherit;
-                padding: 10px 0;
+                // padding: 10px 0;
             }
         }
     }
