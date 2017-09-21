@@ -124,8 +124,9 @@
 	            <div class="col-lg-12 text-center">
 	            		<div class="row">
 		            		<div class="col-lg-12 text-center">
+		            			<div style="position:absolute; top:50% !important; left:50% !important; z-index: 100; margin-top:-40px; margin-left:-40px"><md-progress-circular ng-show="contr.visibleManager.loaderVisible" class="md-hue-2" md-diameter="80px"></md-progress-circular></div>
+		            			<div ng-show="!contr.visibleManager.spinnerVisible"><img alt="" src="images/base-rounded-3d.png" style="width:100%"></div>
 		            			<div ng-show="contr.visibleManager.spinnerVisible" id="spritespin"></div>
-		            			<md-progress-circular ng-show="contr.visibleManager.loaderVisible" class="md-hue-2" md-diameter="80px"></md-progress-circular>
 		            		</div>
 	            		</div>
 	            </div>
