@@ -8735,7 +8735,7 @@ img {
   display: block;
   width: 130px;
   text-align: center;
-  background: url("../images/logo-small.jpg") no-repeat center center;
+  background: url("/images/logo-small.jpg") no-repeat center center;
   background-size: contain;
 }
 @media screen and (max-width: 767px) {
@@ -8886,9 +8886,24 @@ img {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 45px;
+  bottom: 55px;
   width: 100%;
   border-top: solid 1px #dbd4d1;
+}
+@media screen and (min-height: 400px) {
+  .configuratore .accessori:after {
+    bottom: 70px;
+  }
+}
+.configuratore .accessori .riepilogo {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+@media screen and (min-height: 400px) {
+  .configuratore .accessori .riepilogo {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 }
 .configuratore .accessori-categoria, .configuratore .accessori-thumb {
   width: 100%;

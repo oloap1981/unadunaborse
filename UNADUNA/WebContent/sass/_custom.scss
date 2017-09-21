@@ -423,9 +423,21 @@ img {
             content: "";
             position: absolute;
             left: 0;
-            bottom: 45px;
+            bottom: 55px;
             width: 100%;
             border-top: solid 1px $standard-border-color;
+            @media screen and (min-height: 400px) {
+                bottom: 70px;
+            }
+
+        }
+        .riepilogo {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            @media screen and (min-height: 400px) {
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
         }
     }
     .accessori-categoria, .accessori-thumb {
@@ -458,7 +470,9 @@ img {
                 height: auto;
             }
         }
+
     }
+
     .accessori-categoria {
         overflow: visible;
         .swiper-slide {
