@@ -70,7 +70,7 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 		
 		//attivo il loader e tolgo lo spinner
 		configController.visibleManager.loaderVisible = true;
-		configController.visibleManager.spinnerVisible = false;
+		//configController.visibleManager.spinnerVisible = false;
 		
 		if(accessorio.attivo){
 			accessorio.attivo = false;
@@ -105,7 +105,9 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
         };
 	
 		//effettuo la chiamata
+		//$http.post('https://dzaentokb4.execute-api.eu-central-1.amazonaws.com/unadunaurl',data, config)//chiamata alla funziona Lambda che accede a S3 via URL; l'esperimento è fallito in quanoto risulta piu' lento
 		$http.post('https://cnohm5u3jh.execute-api.eu-central-1.amazonaws.com/configuratorstage',data, config)
+		
 		.then(function(success){
 			
 			//ricompongo la stringa base64 dell'immagine spritesheet che ho creato su Lambda
@@ -113,7 +115,6 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 			for(var i = 0; i < success.data.imageArray.length; i++){
 				image = image + success.data.imageArray[i];
 			}
-			
 			//ho ricevuto i dati, attivo lo spinner per la visualizzazione 3D
 			var dataSpin = {
 					width: 960,
@@ -130,9 +131,11 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 	                    '360'
 	                ]
 			};
+			
 			$('#spritespin').spritespin(dataSpin);
 			configController.visibleManager.loaderVisible = false;
 			configController.visibleManager.spinnerVisible = true;
+			$('#spritespin').fadeIn();
 		});
 	};
 });
