@@ -125,17 +125,19 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 	                sense: -1,
 	                responsive: true,
 	                animate: false,
+	                detectSubsampling : true,
+	                scrollThreshold   : 200,
 	                mods: [
 	                    'drag',
-	                    'ease',
 	                    '360'
 	                ]
 			};
 			
 			$('#spritespin').spritespin(dataSpin);
+			$('#spritespin').fadeIn();
 			configController.visibleManager.loaderVisible = false;
 			configController.visibleManager.spinnerVisible = true;
-			$('#spritespin').fadeIn();
+			
 		});
 	};
 });
