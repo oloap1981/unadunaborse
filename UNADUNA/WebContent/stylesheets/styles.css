@@ -8704,35 +8704,12 @@ img {
 /*-------------------------------*/
 /*  @group Header               */
 /*-------------------------------*/
-/*-------------------------------*/
-/*  @end Header               */
-/*-------------------------------*/
-/*-------------------------------*/
-/*  @group Contenitore generale  */
-/*-------------------------------*/
-/* @group Stili ed elementi content */
-/* @end Stili ed elementi content */
-/*-------------------------------*/
-/*-------------------------------*/
-/*  @end contenitore generale  */
-/*-------------------------------*/
-/*-------------------------------*/
-/*  @group Configuratore Bag */
-/*-------------------------------*/
-.configuratore {
-  /* customizazione elementi di default */
-  /* customizzazione navbar */
-  /* settaggio elementi grafici di default */
-  /* menu accessori */
-  /* spinner borse */
-}
-.configuratore .container {
-  min-height: 100%;
-}
-.configuratore .main-navbar {
+/* customizzazione navbar */
+.main-navbar {
   z-index: 1100;
 }
-.configuratore .navbar-brand-centered {
+
+.logo-small {
   position: absolute;
   left: 50%;
   display: block;
@@ -8742,64 +8719,93 @@ img {
   background-size: contain;
 }
 @media screen and (max-width: 767px) {
-  .configuratore .navbar-brand-centered {
+  .logo-small {
     width: 100px;
   }
 }
-.configuratore .navbar > .container .navbar-brand-centered,
-.configuratore .navbar > .container-fluid .navbar-brand-centered {
+
+.navbar > .container .logo-small,
+.navbar > .container-fluid .logo-small {
   margin-left: -65px;
 }
 @media screen and (max-width: 767px) {
-  .configuratore .navbar > .container .navbar-brand-centered,
-  .configuratore .navbar > .container-fluid .navbar-brand-centered {
+  .navbar > .container .logo-small,
+  .navbar > .container-fluid .logo-small {
     margin-left: -100px;
   }
 }
-.configuratore .navbar-toggle, .configuratore .navbar-toggle:hover {
+
+.navbar-toggle, .navbar-toggle:hover {
   margin-left: 10px;
   border: none;
   float: left;
 }
-.configuratore .fixed-navbar-right {
+
+.fixed-navbar-right {
   float: right;
 }
-.configuratore .fixed-navbar-right li {
+.fixed-navbar-right li {
   margin-left: -1px;
 }
-.configuratore .fixed-navbar-left li {
+
+.fixed-navbar-left li {
   margin-right: -1px;
 }
+
 @media screen and (max-width: 767px) {
-  .configuratore .fixed-navbar-right {
+  .fixed-navbar-right {
     float: right;
     margin: 0;
   }
-  .configuratore .fixed-navbar-right li {
+  .fixed-navbar-right li {
     float: left;
   }
-  .configuratore .fixed-navbar-right li a:not(.link) {
+  .fixed-navbar-right li a:not(.link) {
     padding: 15px;
   }
-  .configuratore .fixed-navbar-left {
+
+  .fixed-navbar-left {
     float: left;
     margin: 0;
   }
-  .configuratore .fixed-navbar-left li {
+  .fixed-navbar-left li {
     float: left;
   }
-  .configuratore .fixed-navbar-left li a:not(.link) {
+  .fixed-navbar-left li a:not(.link) {
     padding: 0;
   }
 }
-.configuratore .navbar [class*='unaicon-']:before {
+.navbar [class*='unaicon-']:before {
   font-size: 1.5em;
   color: #60534D;
 }
 @media screen and (max-width: 767px) {
-  .configuratore .navbar [class*='unaicon-']:before {
+  .navbar [class*='unaicon-']:before {
     font-size: 1.3em;
   }
+}
+
+/*-------------------------------*/
+/*  @end Header               */
+/*-------------------------------*/
+/*-------------------------------*/
+/*  @group Contenitore generale  */
+/*-------------------------------*/
+/* @group Stili ed elementi content */
+.container {
+  min-height: 100%;
+}
+
+/*-------------------------------*/
+/*  @end contenitore generale  */
+/*-------------------------------*/
+/*-------------------------------*/
+/*  @group Configuratore Bag */
+/*-------------------------------*/
+.configuratore {
+  /* settaggio elementi grafici di default */
+  /* menu accessori */
+  /* spinner borse */
 }
 .configuratore .main-configurator-navbar {
   margin-top: 1px;

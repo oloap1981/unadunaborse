@@ -212,122 +212,112 @@ img {
 /*-------------------------------*/
 /*  @group Header               */
 /*-------------------------------*/
-// .navbar {
-//     min-height: inherit;
-// }
-// .navbar-collapse {
-//     padding: 0;
-// }
+
+/* customizzazione navbar */
+
+.main-navbar {
+    z-index: 1100;
+}
+.logo-small {
+    position: absolute;
+    left: 50%;
+    display: block;
+    width: 130px;
+    text-align: center;
+    background: url('/images/logo-small.jpg') no-repeat center center;
+    background-size: contain;
+    @media screen and (max-width: $screen-xs-max) {
+        width:100px;
+    }
+}
+
+.navbar>.container .logo-small,
+.navbar>.container-fluid .logo-small {
+    margin-left: -65px;
+    @media screen and (max-width: $screen-xs-max) {
+        margin-left: -100px;
+    }
+}
+.navbar-toggle, .navbar-toggle:hover {
+    margin-left: 10px;
+    border: none;
+    float: left;
+}
+
+.fixed-navbar-right {
+
+        float: right;
+    li {
+        margin-left: -1px;
+    }
+}
+.fixed-navbar-left {
+    li {
+        margin-right: -1px;
+    }
+}
+@media screen and (max-width: $screen-xs-max) {
+    .fixed-navbar-right {
+        float: right;
+        margin: 0;
+        // margin-top: 6px;
+        li {
+            float: left;
+            a:not(.link) {
+                padding: 15px;
+            }
+        }
+    }
+    .fixed-navbar-left {
+        float: left;
+        margin: 0;
+        // margin-top: 6px;
+        li {
+            float: left;
+            a:not(.link) {
+                padding: 0;
+            }
+        }
+    }
+}
+.navbar {
+    [class*='unaicon-']:before{
+        font-size: 1.5em;
+        color: $brand-primary;
+        @media screen and (max-width: $screen-xs-max) {
+            font-size: 1.3em;
+        }
+    }
+}
 
 
 
 /*-------------------------------*/
 /*  @end Header               */
 /*-------------------------------*/
+
 /*-------------------------------*/
 /*  @group Contenitore generale  */
 /*-------------------------------*/
+
 /* @group Stili ed elementi content */
 
 
-
-/* @end Stili ed elementi content */
-/*-------------------------------*/
-
-
+.container {
+    min-height: 100%;
+}
 
 /*-------------------------------*/
 /*  @end contenitore generale  */
 /*-------------------------------*/
 
+
+
 /*-------------------------------*/
 /*  @group Configuratore Bag */
 /*-------------------------------*/
+
 .configuratore {
-
-    /* customizazione elementi di default */
-
-    .container {
-        min-height: 100%;
-    }
-
-    /* customizzazione navbar */
-
-    .main-navbar {
-        z-index: 1100;
-    }
-    .navbar-brand-centered {
-        position: absolute;
-        left: 50%;
-        display: block;
-        width: 130px;
-        text-align: center;
-        background: url('/images/logo-small.jpg') no-repeat center center;
-        background-size: contain;
-        @media screen and (max-width: $screen-xs-max) {
-            width:100px;
-        }
-    }
-
-    .navbar>.container .navbar-brand-centered,
-    .navbar>.container-fluid .navbar-brand-centered {
-        margin-left: -65px;
-        @media screen and (max-width: $screen-xs-max) {
-            margin-left: -100px;
-        }
-    }
-    .navbar-toggle, .navbar-toggle:hover {
-        margin-left: 10px;
-        border: none;
-        float: left;
-    }
-
-    .fixed-navbar-right {
-
-            float: right;
-        li {
-            margin-left: -1px;
-        }
-    }
-    .fixed-navbar-left {
-        li {
-            margin-right: -1px;
-        }
-    }
-    @media screen and (max-width: $screen-xs-max) {
-        .fixed-navbar-right {
-            float: right;
-            margin: 0;
-            // margin-top: 6px;
-            li {
-                float: left;
-                a:not(.link) {
-                    padding: 15px;
-                }
-            }
-        }
-        .fixed-navbar-left {
-            float: left;
-            margin: 0;
-            // margin-top: 6px;
-            li {
-                float: left;
-                a:not(.link) {
-                    padding: 0;
-                }
-            }
-        }
-    }
-    .navbar {
-        [class*='unaicon-']:before{
-            font-size: 1.5em;
-            color: $brand-primary;
-            @media screen and (max-width: $screen-xs-max) {
-                font-size: 1.3em;
-            }
-        }
-    }
-
     .main-configurator-navbar {
         // top: $navbar-height+3px;
         margin-top: 1px;
