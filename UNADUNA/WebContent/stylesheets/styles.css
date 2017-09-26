@@ -8671,10 +8671,6 @@ button.close {
   }
 }
 
-table {
-  width: 100%;
-}
-
 /*--------------------------------------------------*/
 /* inizio customizzazioni layout e stili di default */
 /*--------------------------------------------------*/
@@ -8701,14 +8697,58 @@ img {
   height: auto;
 }
 
+table {
+  width: 100%;
+}
+
+/* settaggio elementi grafici di default */
+.active {
+  opacity: 1;
+  position: relative;
+}
+.active.selected {
+  font-weight: bold;
+}
+.active:after, .active:before {
+  content: "";
+  border-style: solid;
+  border-width: 10px;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+}
+.active:before {
+  border-color: #dbd4d1 transparent transparent;
+}
+.active:after {
+  margin-top: -2px;
+  border-color: #fff transparent transparent;
+}
+.active.bottom:after, .active.bottom:before {
+  top: 0;
+}
+
+a.link {
+  border-left: solid 1px #dbd4d1;
+  border-right: solid 1px #dbd4d1;
+  z-index: 999;
+}
+
+.open a.link, .open a.link:hover, .open a.link:active, .open a.link:focus {
+  position: relative;
+  z-index: 1002;
+  border-left: solid 1px #dbd4d1;
+  border-right: solid 1px #dbd4d1;
+  background-color: #fff !important;
+}
+
 /*-------------------------------*/
 /*  @group Header               */
 /*-------------------------------*/
 /* customizzazione navbar */
-.main-navbar {
-  z-index: 1100;
-}
-
 .logo-small {
   position: absolute;
   left: 50%;
@@ -8721,6 +8761,29 @@ img {
 @media screen and (max-width: 767px) {
   .logo-small {
     width: 100px;
+  }
+}
+
+.logo-big {
+  position: absolute;
+  left: 50%;
+  top: 13px;
+  display: block;
+  width: 166px;
+  height: 126px;
+  text-align: center;
+  background: url("/images/logo-big.png") no-repeat center center;
+  background-size: contain;
+}
+
+.navbar > .container .logo-big,
+.navbar > .container-fluid .logo-big {
+  margin-left: -65px;
+}
+@media screen and (max-width: 767px) {
+  .navbar > .container .logo-big,
+  .navbar > .container-fluid .logo-big {
+    margin-left: -100px;
   }
 }
 
@@ -8785,6 +8848,42 @@ img {
   }
 }
 
+.main-header-content {
+  height: 100px;
+  background: linear-gradient(to bottom, white, #fafafa);
+  top: 53px;
+  position: relative;
+}
+@media screen and (max-width: 767px) {
+  .main-header-content {
+    height: auto;
+  }
+}
+
+.main-site-navbar {
+  top: 150px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border-top: solid 1px #dbd4d1;
+}
+.main-site-navbar .navbar-collapse {
+  text-align: center;
+  line-height: 0px;
+}
+.main-site-navbar .navbar-collapse .navbar-nav {
+  display: inline-block;
+  float: none;
+}
+.main-site-navbar .navbar-collapse .navbar-nav li a {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+@media screen and (max-width: 767px) {
+  .main-site-navbar {
+    top: 50px;
+  }
+}
+
 /*-------------------------------*/
 /*  @end Header               */
 /*-------------------------------*/
@@ -8803,7 +8902,6 @@ img {
 /*  @group Configuratore Bag */
 /*-------------------------------*/
 .configuratore {
-  /* settaggio elementi grafici di default */
   /* menu accessori */
   /* spinner borse */
 }
@@ -8812,16 +8910,6 @@ img {
 }
 .configuratore .main-configurator-navbar a.link {
   padding: 15px;
-  border-left: solid 1px #dbd4d1;
-  border-right: solid 1px #dbd4d1;
-  z-index: 999;
-}
-.configuratore .main-configurator-navbar .open a.link, .configuratore .main-configurator-navbar .open a.link:hover, .configuratore .main-configurator-navbar .open a.link:active, .configuratore .main-configurator-navbar .open a.link:focus {
-  position: relative;
-  z-index: 1002;
-  border-left: solid 1px #dbd4d1;
-  border-right: solid 1px #dbd4d1;
-  background-color: #fff !important;
 }
 .configuratore .main-configurator-navbar a.materiale {
   padding-right: 60px;
@@ -8843,39 +8931,6 @@ img {
   background-position: center center;
   background-size: auto;
   background-repeat: no-repeat;
-}
-@media screen and (max-width: 767px) {
-  .configuratore .main-configurator-navbar .fixed-navbar-right, .configuratore .main-configurator-navbar .fixed-navbar-left {
-    margin: 0;
-  }
-}
-.configuratore .main-configurator-navbar h1 {
-  min-width: 200px;
-}
-.configuratore .active {
-  opacity: 1;
-  position: relative;
-}
-.configuratore .active.selected {
-  font-weight: bold;
-}
-.configuratore .active:after, .configuratore .active:before {
-  content: "";
-  border-style: solid;
-  border-width: 10px;
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -10px;
-}
-.configuratore .active:before {
-  border-color: #dbd4d1 transparent transparent;
-}
-.configuratore .active:after {
-  margin-top: -2px;
-  border-color: #fff transparent transparent;
 }
 .configuratore .accessori {
   position: absolute;
