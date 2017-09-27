@@ -8543,6 +8543,10 @@ button.close {
   content: '\0047';
 }
 
+.unaicon-search:before {
+  content: '\0048';
+}
+
 /*-------------------------------*/
 /* override e aggiunte a stili bootstrap      */
 /*-------------------------------*/
@@ -8700,33 +8704,20 @@ table {
   width: 100%;
 }
 
-.title {
-  font-family: "Playfair Display", Georgia, Times, serif;
-  font-style: italic;
-}
-
-.jumbotron {
-  padding: 20px 0;
-  background: url(../images/jumbotron.jpg) no-repeat center center;
-  background-size: cover;
-  height: 350px;
+input {
+  padding: 5px;
+  font-size: 1.5em;
+  text-align: center;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   border-bottom: solid 1px #dbd4d1;
 }
-.jumbotron .title {
-  font-size: 40px;
+input::placeholder {
+  color: #dbd4d1;
 }
-.jumbotron .subtitle {
-  font-size: 16px;
-}
-.jumbotron .follow {
-  padding-left: 10%;
-  padding-right: 10%;
-}
-@media screen and (max-width: 767px) {
-  .jumbotron {
-    text-align: center;
-    height: auto;
-  }
+input.newsletter {
+  margin: 20px 0;
 }
 
 /* settaggio elementi grafici di default */
@@ -8781,6 +8772,16 @@ table {
   border-color: transparent transparent transparent #fff;
 }
 
+.btn-default:hover, .btn-default:active {
+  background-color: #fff !important;
+}
+.btn-default.active:before {
+  border-color: #ccc transparent transparent;
+}
+.btn-default.follow:before {
+  border-color: transparent transparent transparent #ccc;
+}
+
 a.link {
   border-left: solid 1px #dbd4d1;
   border-right: solid 1px #dbd4d1;
@@ -8806,6 +8807,7 @@ a.link {
 
 .logo-small {
   position: absolute;
+  z-index: 1000;
   left: 50%;
   display: block;
   width: 130px;
@@ -8821,6 +8823,7 @@ a.link {
 
 .logo-big {
   position: absolute;
+  z-index: 1000;
   left: 50%;
   top: 13px;
   display: block;
@@ -8920,11 +8923,37 @@ a.link {
     height: auto;
   }
 }
+.main-header-content .search {
+  position: absolute;
+  top: 15px;
+  padding: 15px;
+}
+.main-header-content .search input {
+  text-align: inherit;
+  font-size: 14px;
+  background: transparent;
+}
+.main-header-content .search input::placeholder {
+  color: inherit;
+}
+.main-header-content .search a {
+  color: #60534D;
+  font-size: 1.5em;
+  position: relative;
+  top: 5px;
+  padding: 0 5px;
+  opacity: .5;
+}
+.main-header-content .search a:hover {
+  opacity: 1;
+}
 
 .main-site-navbar {
   font-size: 16px;
   text-transform: uppercase;
+  border: none;
   border-top: solid 1px #dbd4d1;
+  border-bottom: solid 1px #dbd4d1;
 }
 .main-site-navbar .navbar-collapse {
   text-align: center;
@@ -8954,6 +8983,89 @@ a.link {
 /* @group Stili ed elementi content */
 .container {
   min-height: 100%;
+}
+
+.title {
+  font-family: "Playfair Display", Georgia, Times, serif;
+  color: #60534D;
+}
+.title.section {
+  padding-bottom: 1em;
+  background: url("../images/divider.png") no-repeat center bottom;
+}
+
+.jumbotron {
+  padding: 20px 0;
+  background: url(../images/jumbotron.jpg) no-repeat center center;
+  background-size: cover;
+  height: 350px;
+  border-bottom: solid 1px #dbd4d1;
+}
+.jumbotron .title {
+  font-size: 40px;
+  font-style: italic;
+}
+.jumbotron .subtitle {
+  font-size: 16px;
+  width: 50%;
+}
+@media screen and (max-width: 767px) {
+  .jumbotron {
+    background: url(../images/jumbotron_blur.jpg) no-repeat center center;
+    text-align: center;
+    height: auto;
+  }
+  .jumbotron .subtitle {
+    width: auto;
+  }
+}
+
+.follow {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.bag-box {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  border: solid 1px transparent;
+}
+.bag-box:hover {
+  border: solid 1px #dbd4d1;
+}
+.bag-box img {
+  margin-bottom: 20px;
+  width: 100%;
+}
+.bag-box span {
+  display: block;
+}
+
+.adv-box {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: solid 1px #dbd4d1;
+}
+.adv-box:hover {
+  text-decoration: none;
+}
+.adv-box img {
+  width: 100%;
+}
+.adv-box .title {
+  font-size: 40px;
+  font-style: italic;
+}
+.adv-box .text {
+  padding: 20px 10%;
+}
+@media screen and (max-width: 767px) {
+  .adv-box {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 /*-------------------------------*/
@@ -9178,79 +9290,50 @@ a.link {
 /*  @group  footer  */
 /*-------------------------------*/
 footer {
-  padding: 20px 0;
-}
-footer h4 {
-  color: inherit;
-  font-size: .75em;
-  border-bottom: dotted 1px #ddd;
-}
-footer .address-col p {
-  font-size: .75em;
-  margin-bottom: 2em;
-}
-footer .address-col .social .fa {
-  font-size: 2em;
-}
-footer .address-col .other .fa {
-  font-size: 1.5em;
-  color: #999;
-}
-footer .address-col .fa-facebook-square {
-  color: #3b5998;
-}
-footer .address-col .fa-youtube-square {
-  color: #E62117;
-}
-footer .address-col .fa-linkedin-square {
-  color: #0077b5;
-}
-footer .menu-col a {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  color: #999;
-  border-bottom: dotted 1px #ddd;
-  font-size: .75em;
-  cursor: pointer;
-}
-footer .menu-col a:after {
-  font: normal normal normal 14px/1 FontAwesome;
-  content: "\f054";
-  position: absolute;
-  top: 0;
-  right: 0;
-  opacity: .5;
-}
-footer .menu-col a:hover {
-  color: #666;
-  text-decoration: none;
-}
-footer ul {
-  list-style: none;
   padding: 0;
-  margin-bottom: 20px;
+  font-size: 15px;
+  text-transform: capitalize;
+  border: none;
 }
-footer ul.checklist {
-  background: #fff;
-  padding: 8px;
-  border: solid 1px rgba(0, 0, 0, 0.1);
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.02);
+footer .footer-navbar-container {
+  border-top: solid 1px #dbd4d1;
+  border-bottom: solid 1px #dbd4d1;
+  line-height: 0px;
 }
-footer ul.checklist li {
-  position: relative;
-  padding-left: 15px;
-  font-size: .75em;
-  color: #666;
+footer .footer-navbar-container .navbar-nav {
+  display: inline-block;
+  float: none;
 }
-footer ul.checklist li:before {
-  content: "\e013";
-  font-family: 'Glyphicons Halflings';
-  font-size: .65em;
-  position: absolute;
-  top: 4px;
-  left: 0;
-  color: #900;
+footer .footer-navbar-container .navbar-nav li a {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+footer .credits {
+  background: white;
+  background: -moz-linear-gradient(top, white 0%, white 45%, #fafafa 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, white), color-stop(45%, white), color-stop(100%, #fafafa));
+  background: -webkit-linear-gradient(top, white 0%, white 45%, #fafafa 100%);
+  background: -o-linear-gradient(top, white 0%, white 45%, #fafafa 100%);
+  background: -ms-linear-gradient(top, white 0%, white 45%, #fafafa 100%);
+  background: linear-gradient(to bottom, white 0%, white 45%, #fafafa 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fafafa', GradientType=0 );
+}
+footer .credits .logo-footer {
+  display: inline-block;
+  width: 114px;
+  height: 86px;
+  margin: 20px;
+  text-align: center;
+  background: url("/images/logo-big.png") no-repeat center center;
+  background-size: contain;
+}
+footer .credits p {
+  font-size: 13px;
+}
+footer .copyright {
+  padding: 10px;
+  border-top: solid 1px #dbd4d1;
+  border-bottom: solid 1px #dbd4d1;
 }
 
 /*-------------------------------*/
