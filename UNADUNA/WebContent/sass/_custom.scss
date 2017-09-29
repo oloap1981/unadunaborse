@@ -1,7 +1,7 @@
 /* font Awesome http://fontawesome.io*/
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
 /* Animation.css */
-@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
+// @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
 
 
 @font-face {
@@ -30,12 +30,15 @@
 }
 .unaicon-login:before{content:'\0041';}
 .unaicon-cart:before{content:'\0042';}
-.unaicon-favourite:before{content:'\0043';}
+.unaicon-favourite:before{content:'\0043'; top: -1px;}
 .unaicon-spinner:before{content:'\0044';}
 .unaicon-zoom:before{content:'\0045';}
 .unaicon-add:before{content:'\0046';}
 .unaicon-remove:before{content:'\0047';}
 .unaicon-search:before{content:'\0048';}
+.unaicon-facebook:before{content:'\0049';}
+.unaicon-twitter:before{content:'\004a';}
+.unaicon-instagram:before{content:'\004b';}
 
 
 /*-------------------------------*/
@@ -226,59 +229,20 @@ input {
     }
 }
 
-/* settaggio elementi grafici di default */
-.active { // stilizzazione con freccia
-    &.selected {
-        font-weight: bold;
-    }
-    opacity: 1;
-    position: relative;
-    &:after, &:before {
-        content: "";
-        border-style: solid;
-        border-width: 10px;
-        width: 0;
-        height: 0;
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -10px;
+/* settaggio elementi grafici dei link e pulsanti */
 
+.btn {
+    @include transition(all 500ms ease-in-out);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    &:hover {
+        @include transition(all 100ms ease-in-out);
+        box-shadow: 0 2px 4px rgba(0,0,0,.15);
     }
-    &:before {
-        border-color: $standard-border-color transparent transparent;
+    &:active {
+        @include transition(all 50ms ease-in-out);
+        box-shadow: 0 0 0 rgba(0,0,0,0);
     }
-    &:after {
-        margin-top: -2px;
-        border-color: $body-bg transparent transparent;
-    }
-    &.bottom {
-        &:after, &:before {
-            top: 0;
-        }
-    }
-}
-.follow {
-    position: relative;
-    &:after, &:before {
-        content: "";
-        border-style: solid;
-        border-width: 10px;
-        width: 0;
-        height: 0;
-        position: absolute;
-        top: 50%;
-        left: 100%;
-        margin-top: -10px;
 
-    }
-    &:before {
-        border-color: transparent transparent transparent $standard-border-color ;
-    }
-    &:after {
-        margin-left: -2px;
-        border-color:  transparent transparent transparent $body-bg;
-    }
 }
 
 .btn-default {
@@ -294,6 +258,108 @@ input {
     }
 }
 
+.active { // stilizzazione  freccia
+    &.selected {
+        font-weight: bold;
+    }
+    position: relative;
+    &:after, &:before {
+        content: "";
+        border-style: solid;
+        border-width: 8px;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -8px;
+
+    }
+    &:before {
+        border-color: $standard-border-color transparent transparent;
+    }
+    &:after {
+        margin-top: -2px;
+        border-color: $body-bg transparent transparent;
+    }
+    &.ontop { // stilizzazione con freccia in alto
+        &:after, &:before {
+            top: 0;
+        }
+    }
+}
+
+.follow { // stilizzazione con freccia a destra
+    position: relative;
+    // padding-left: 10%;
+    // padding-right: 10%;
+    .action & {
+        width: 98%;
+    }
+    &:after, &:before {
+        @include transition(all 150ms ease-in-out);
+        content: "";
+        border-style: solid;
+        border-width: 8px;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: -8px;
+    }
+    &:before {
+        border-color: transparent transparent transparent $standard-border-color ;
+    }
+    &:after {
+        margin-left: -2px;
+        border-color:  transparent transparent transparent $body-bg;
+    }
+    &.anim:after, &.anim:before {
+        border-width: 0px;
+        margin-top: 0px;
+    }
+    &.anim:hover:after, &.anim:hover:before {
+        @include transition(all 150ms ease-in-out);
+        border-width: 8px;
+        margin-top: -8px;
+    }
+}
+
+
+.btn-default { // customizzazione pulsante di dfault
+    &:hover, &:active {
+        background-color: $body-bg !important;
+    }
+    &.active:before {
+        border-color: $btn-default-border transparent transparent;
+
+    }
+    &.follow:before {
+        border-color: transparent transparent transparent $btn-default-border;
+    }
+}
+
+.btn-action { // stilizzazione pulsante di azione
+    @include button-variant($btn-action-color, $btn-action-bg, $btn-action-border);
+    font-size: 1.8em;
+    &.active:after {
+        background-color: $btn-action-bg;
+
+    }
+    &.active:before {
+        border-color: $btn-action-bg transparent transparent;
+
+    }
+    &.follow:after {
+        border-color: transparent transparent transparent $btn-action-bg;
+    }
+    &.follow:before {
+        border-color: transparent transparent transparent $btn-action-bg;
+    }
+}
+
+/* stilizzazione link menu */
 a.link {
     border-left: solid 1px $standard-border-color;
     border-right: solid 1px $standard-border-color;
@@ -305,6 +371,51 @@ a.link {
     border-left: solid 1px $standard-border-color;
     border-right: solid 1px $standard-border-color;
     background-color: $body-bg !important;
+}
+
+.dropdown-menu {
+    // left: auto;
+    box-shadow: 0px 0px 0px transparent;
+    border: solid 1px $standard-border-color;
+}
+
+/* stilizzazione tabs */
+.nav-tabs {
+    li {
+        float: none;
+        display: inline-block;
+        font-size: 16px;
+        & > a, & > a:hover {
+            border: 1px solid $standard-border-color;;
+            border-left-color: transparent;
+            margin-right: -4px;
+        }
+        & > a:hover {
+            color: #000;
+        }
+        &:first-child > a {
+            border-left: 1px solid $standard-border-color;;
+
+        }
+        &.active > a, &.active > a:hover {
+            font-weight: bold;
+            color: #000;
+        }
+        &.active > a, &.active > a:hover, &.active > a:active, , &.active > a:focus {
+            border-bottom-color: $standard-border-color;
+        }
+    }
+
+}
+.tab-pane {
+    &.active {
+        &:before {
+            border: none;
+        }
+        &:after {
+            border: none;
+        }
+    }
 }
 
 /*-------------------------------*/
@@ -424,7 +535,8 @@ a.link {
     }
     .search {
         position: absolute;
-        top: 15px;
+        top: 10px;
+        left: 0;
         padding: 15px;
         input{
             text-align: inherit;
@@ -446,6 +558,12 @@ a.link {
             }
         }
     }
+    .language {
+        position: absolute;
+        top: 20px;
+        right: 0;
+        padding: 15px;
+    }
 }
 .main-site-navbar {
     // top: $navbar-height+100px;
@@ -462,8 +580,56 @@ a.link {
             float: none;
             li {
                 a {
+                    @include transition(all 150ms ease-in-out);
                     padding-left: 25px;
                     padding-right: 25px;
+                    &:after, &:before {
+                        @include transition(all 150ms ease-in-out);
+                        content: "";
+                        border-style: solid;
+                        border-width: 0px;
+                        width: 0;
+                        height: 0;
+                        position: absolute;
+                        top: 0%;
+                        left: 50%;
+                        margin-left: -0px;
+
+                    }
+                    &:before {
+                        border-color: $standard-border-color transparent transparent;
+                    }
+                    &:after {
+                        margin-top: -2px;
+                        border-color: $body-bg transparent transparent;
+                    }
+                    &:hover {
+                        @include transition(all 150ms ease-in-out);
+                    }
+                    &:hover:after, &:hover:before {
+                        @include transition(all 150ms ease-in-out);
+                        border-width: 8px;
+                        margin-left: -8px;
+                    }
+                    &.active {
+                        &:after, &:before {
+                            @include transition(all 150ms ease-in-out);
+                            content: "";
+                            border-style: solid;
+                            border-width: 8px;
+                            width: 0;
+                            height: 0;
+                            position: absolute;
+                            top: 100%;
+                            left: 50%;
+                            margin-left: -8px;
+                        }
+                    }
+                    &.ontop {
+                        &:after, &:before {
+                            top: 0%;
+                        }
+                    }
                 }
             }
         }
@@ -488,15 +654,29 @@ a.link {
 
 
 .container {
-    min-height: 100%;
+    // min-height: 100%;
 }
 
 .title {
     font-family: $font-family-serif;
     color: $brand-primary;
-    &.section {
-        padding-bottom: 1em;
-        background: url('../images/divider.png') no-repeat center bottom;
+}
+.section {
+    padding-bottom: 1em;
+    background: url('../images/divider.png') no-repeat center bottom;
+    &.left {
+        background-position: left bottom;
+    }
+}
+.section-small {
+    padding-bottom: 1em;
+    font-size: 15px;
+    background: url('../images/divider-small.png') no-repeat center bottom;
+    &.left {
+        background-position: left bottom;
+        @media screen and (max-width: $screen-xs-max) {
+            background-position: center bottom;
+        }
     }
 }
 .jumbotron {
@@ -523,18 +703,15 @@ a.link {
     }
 }
 
-.follow {
-    padding-left: 10%;
-    padding-right: 10%;
-}
 .bag-box {
     display: block;
     width: 100%;
     padding: 20px;
     border: solid 1px transparent;
+    @include transition(all 500ms ease-in-out);
     &:hover {
+        @include transition(all 100ms ease-in-out);
         border: solid 1px $standard-border-color;
-
     }
     img {
         margin-bottom: 20px;
@@ -544,6 +721,117 @@ a.link {
         display: block;
     }
 }
+
+.bag-sample {
+    border: solid 1px $standard-border-color;
+    width: 100%;
+}
+.bag-list {
+    text-align: left;
+    @media screen and (max-width: $screen-xs-max) {
+        text-align: center;
+    }
+    .bag-item {
+        border-bottom: solid 1px $standard-border-color;
+        padding: 30px 0;
+        &:last-child {
+            border: none;
+        }
+    }
+    .bag {
+        font-size: 20px;
+    }
+    .base, .accessori {
+        border-right: solid 1px $standard-border-color;
+    }
+    .base, .accessori, .action {
+        @media screen and (max-width: $screen-sm-max) {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border: none;
+            border-top: solid 1px $standard-border-color;
+        }
+
+    }
+    .materiale {
+        display: block;
+        margin: 5px auto 5px auto;
+        width: 30px;
+        height: 30px;
+        box-shadow: inset 0 0 0 1px rgba(0,0,0,.15)
+    }
+}
+
+
+.order-state {
+    display: block;
+    width: 300px;
+    @media screen and (min-width: $screen-xs-max) and (max-width: $screen-sm-max) {
+        width:210px;
+        font-size: 15px;
+    }
+    @media screen and (max-width: $screen-xs-max) {
+        width: 97%;
+    }
+    text-align: center;
+    padding: 10px;
+    border: solid 1px $standard-border-color;
+    margin-top: -1px;
+    background-color: #fff;
+    color: #E5E1DD;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    &.one{
+        z-index: 3;
+    }
+    &.two{
+        z-index: 2;
+    }
+    &.three{
+        z-index: 1;
+    }
+    &.done {
+        color: inherit;
+        z-index: 5;
+        border-bottom-color: $standard-border-color;
+        &.active:before {
+            border-color: $standard-border-color transparent transparent;
+        }
+    }
+    &.just-done {
+        color: inherit;
+        z-index: 5;
+        border-bottom-color: #C09683;
+        &.active:before {
+            border-color: #C09683 transparent transparent;
+        }
+    }
+    &.current {
+        border: solid 1px #C09683;
+        z-index: 4;
+        background-color: lighten(#C09683, 30);
+        color: #7E2C09;
+        font-size: 20px;
+        width: 310px;
+        @media screen and (min-width: $screen-xs-max) and (max-width: $screen-sm-max) {
+            width:220px;
+            font-size: 18px;
+        }
+        @media screen and (max-width: $screen-xs-max) {
+            width: 100%;
+        }
+        &.active {
+            &:after {
+                border-color: lighten(#C09683, 30) transparent transparent;
+            }
+            &:before {
+                border-color: #C09683 transparent transparent;
+            }
+        }
+    }
+}
+
 .adv-box {
     display: block;
     width: 100%;
@@ -569,6 +857,53 @@ a.link {
         margin-bottom: 10px;
     }
 }
+
+/* corporate stuff */
+
+.passato, .presente, .futuro {
+    font-size: 15px;
+    @media screen and (min-width: $screen-xs-max) {
+        text-align: left;
+    }
+}
+.futuro {
+    @media screen and (min-width: $screen-xs-max) {
+        text-align: right;
+    }
+}
+.citazione {
+    display: inline-block;
+    position: relative;
+    font-style: italic;
+    @media screen and (max-width: $screen-xs-max) {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    &:before {
+        content:"\201C";
+        position: absolute;
+        top: -40px;
+        left: -40px;
+        font-size: 3em;
+        color: #F8E5DC;
+        @media screen and (max-width: $screen-xs-max) {
+            left: -15px;
+        }
+    }
+    &:after {
+        content:"\201E";
+        position: absolute;
+        bottom: 10px;
+        right: -40px;
+        font-size: 3em;
+        color: #F8E5DC;
+        @media screen and (max-width: $screen-xs-max) {
+            right: -15px;
+        }
+
+    }
+}
+
 
 /*-------------------------------*/
 /*  @end contenitore generale  */
@@ -613,7 +948,7 @@ a.link {
     .accessori {
         position: absolute;
         width: 100%;
-        bottom: 0;
+        bottom: 80px;
         left: 0;
         overflow: hidden;
         border-top: solid 1px $standard-border-color;
@@ -626,26 +961,37 @@ a.link {
             width: 100%;
             border-top: solid 1px $standard-border-color;
         }
-        &:after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 55px;
-            width: 100%;
-            border-top: solid 1px $standard-border-color;
-            @media screen and (min-height: 650px) {
-                bottom: 70px;
-            }
-
+        // &:after {
+        //     content: "";
+        //     position: absolute;
+        //     left: 0;
+        //     bottom: 75px;
+        //     width: 100%;
+        //     border-top: solid 1px $standard-border-color;
+        //     @media screen and (min-height: 650px) {
+        //         bottom: 75px;
+        //     }
+        //
+        // }
+    }
+    .riepilogo {
+        position: absolute;
+        width: 100%;
+        background-color: #fff;
+        z-index: 50;
+        bottom: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-top: solid 1px $standard-border-color;
+        .price {
+            font-size: 30px;
         }
-        .riepilogo {
-            margin-top: 5px;
-            margin-bottom: 5px;
-            @media screen and (min-height: 650px) {
-                margin-top: 15px;
-                margin-bottom: 15px;
-            }
+        .info{
+            color: #ccc;
         }
+        // @media screen and (min-height: 650px) {
+        //
+        // }
     }
     .accessori-categoria, .accessori-thumb {
         width: 100%;
@@ -671,12 +1017,12 @@ a.link {
         .swiper-lazy-preloader {
             margin-top: 21px;
         }
-        img {
-            height: 50px;
-            @media screen and (min-height: 650px) {
-                height: auto;
-            }
-        }
+        // img {
+        //     height: 50px;
+        //     @media screen and (min-height: 650px) {
+        //         height: auto;
+        //     }
+        // }
 
     }
 
