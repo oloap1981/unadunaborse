@@ -144,6 +144,7 @@
 	        </div>
 	    </div>
 	    <div class="accessori">
+            <a href="#" class="accessori-trigger" id="accessori-trigger"></a>
 	        <div class="container">
 	            <div class="row">
 	                <div class="col-lg-12">
@@ -234,7 +235,46 @@
         //alert('Make an AJAX call and pass this parameter >> name=' + name);
         $('#edit-text').text(name);
     });
-
+    var aperto = 0;
+    $( document ).ready(function() {
+        var accessoriHeight = $(".accessori").outerHeight();
+        var riepilogoHeight = $(".riepilogo").outerHeight();
+        var docHeight = $( document ).height();
+        console.log(docHeight);
+        if (docHeight > 550){
+            aperto = 0;
+            $(".accessori").stop().animate({bottom: riepilogoHeight}, 500, "swing");
+            console.log("aperto!");
+        } else {
+            aperto = 1;
+            $(".accessori").stop().animate({bottom: -(accessoriHeight-riepilogoHeight)}, 500, "swing");
+        }
+        $( "#accessori-trigger" ).click(function() {
+              if ( aperto == 1 ) {
+                  aperto = 0;
+                  $(".accessori").stop().animate({bottom: riepilogoHeight}, 500, "swing");
+              }
+              else {
+                  aperto = 1;
+                  $(".accessori").stop().animate({bottom: -(accessoriHeight-riepilogoHeight)}, 500, "swing");
+              }
+        });
+    });
+    $( window ).resize(function() {
+        var accessoriHeight = $(".accessori").outerHeight();
+        var riepilogoHeight = $(".riepilogo").outerHeight();
+        var docHeight = $( document ).height();
+        console.log(docHeight);
+        if (docHeight > 550){
+            aperto = 0;
+            $(".accessori").stop().animate({bottom: riepilogoHeight}, 500, "swing");
+            console.log("aperto!");
+        } else {
+            aperto = 1;
+            $(".accessori").stop().animate({bottom: -(accessoriHeight-riepilogoHeight)}, 500, "swing");
+          //   console.log( "0" );
+        }
+    });
     </script>
 </body>
 

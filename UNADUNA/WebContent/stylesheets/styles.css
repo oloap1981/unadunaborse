@@ -12513,7 +12513,7 @@ a.link {
   width: 100%;
   bottom: 80px;
   left: 0;
-  overflow: hidden;
+  overflow: visible;
   border-top: solid 1px #dbd4d1;
   background-color: #fff;
 }
@@ -12523,6 +12523,18 @@ a.link {
   left: 0;
   width: 100%;
   border-top: solid 1px #dbd4d1;
+}
+.configuratore .accessori-trigger {
+  display: block;
+  background: #fff;
+  border: solid 1px #dbd4d1;
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  height: 30px;
+  width: 100px;
+  margin-left: -50px;
 }
 .configuratore .riepilogo {
   position: absolute;
