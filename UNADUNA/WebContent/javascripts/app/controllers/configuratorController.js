@@ -1,7 +1,7 @@
 angular.module('unadunaModule').controller('unadunaConfiguratorController', function($http, $scope, $filter){
-	
+
 	var configController = this;
-	
+
 	configController.accessoriBorsa = [
 	    	{
 	    		datasource: "images/item.jpg",
@@ -54,31 +54,31 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 	    		attivo: false
 	    	},
 	];
-	
+
 	configController.visibleManager = {
 			loaderVisible: false,
 			spinnerVisible: false
 	};
-	
+
 	configController.cleanAccessori = function(){
 		for(var i = 0; i < configController.accessoriBorsa.length; i++){
 			configController.accessoriBorsa[i].attivo = false;
 		}
 	}
-	
+
 	configController.SendData = function(accessorio){
-		
+
 		//attivo il loader e tolgo lo spinner
 		configController.visibleManager.loaderVisible = true;
 		//configController.visibleManager.spinnerVisible = false;
-		
+
 		if(accessorio.attivo){
 			accessorio.attivo = false;
 		} else {
 			configController.cleanAccessori();
-			accessorio.attivo = true;	
+			accessorio.attivo = true;
 		}
-		
+
 		var hasAccessorio = false;
 		switch(accessorio.idaccessorio){
 			case 1:
@@ -91,25 +91,25 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 				hasAccessorio = false;
 				break;
 		}
-		
+
 		//parametri di chiamata
 		var data = {
 				accessorio: hasAccessorio
 		};
-		
+
 		//configurazioni di chiamata
 		var config = {
             headers : {
                 'Content-Type': 'application/json'
             }
         };
-	
+
 		//effettuo la chiamata
 		//$http.post('https://dzaentokb4.execute-api.eu-central-1.amazonaws.com/unadunaurl',data, config)//chiamata alla funziona Lambda che accede a S3 via URL; l'esperimento è fallito in quanoto risulta piu' lento
 		$http.post('https://cnohm5u3jh.execute-api.eu-central-1.amazonaws.com/configuratorstage',data, config)
-		
+
 		.then(function(success){
-			
+
 			//ricompongo la stringa base64 dell'immagine spritesheet che ho creato su Lambda
 			var image = 'data:image/jpg;base64,';
 			for(var i = 0; i < success.data.imageArray.length; i++){
@@ -129,15 +129,16 @@ angular.module('unadunaModule').controller('unadunaConfiguratorController', func
 	                scrollThreshold   : 200,
 	                mods: [
 	                    'drag',
-	                    '360'
+	                    '360',
+						'ease'
 	                ]
 			};
-			
+
 			$('#spritespin').spritespin(dataSpin);
 			$('#spritespin').fadeIn();
 			configController.visibleManager.loaderVisible = false;
 			configController.visibleManager.spinnerVisible = true;
-			
+
 		});
 	};
 });

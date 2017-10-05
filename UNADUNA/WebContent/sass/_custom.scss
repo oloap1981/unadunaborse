@@ -946,6 +946,7 @@ a.link {
 
     /* menu accessori */
     .accessori {
+        opacity: 0;
         position: absolute;
         width: 100%;
         bottom: 80px;
@@ -953,6 +954,9 @@ a.link {
         overflow: visible;
         border-top: solid 1px $standard-border-color;
         background-color: $body-bg;
+        -webkit-transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
         & .first-divider {
             content: "";
             position: absolute;
