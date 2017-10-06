@@ -87,7 +87,7 @@ $.fn.sepLine = function(divider, container, parent){
 
 /* funzione regola l'altezza del megamenu in base alla dimensione della pagina */
 $.fn.yammHeight = function(mainNavbar, yammContent, offsetElementHeight){
-    var heightref = $(window).height() - ($('.'+mainNavbar).outerHeight()+$('.'+offsetElementHeight).outerHeight()+11);
+    var heightref = $(window).height() - ($('.'+mainNavbar).outerHeight()+$('.'+offsetElementHeight).outerHeight()+1);
     $('.'+yammContent).outerHeight(heightref);
 }
 
@@ -98,6 +98,7 @@ $.fn.animateAccessoriBar = function(accContainer, offsetElement, triggerElement,
     var docHeight = $(window).height();
     // console.log('accContainerHeight: '+accContainerHeight);
     // console.log('offsetElementHeight: '+offsetElementHeight);
+    console.log('valore di aperto: '+aperto);
     if (docHeight > 600) {
         aperto = 0;
         $('.'+accContainer).stop().animate({
@@ -115,12 +116,14 @@ $.fn.animateAccessoriBar = function(accContainer, offsetElement, triggerElement,
         $('.'+triggerElement).click(function() {
             if (aperto == 1) {
                 aperto = 0;
+                console.log('valore di aperto: '+aperto);
                 event.stopPropagation();
                 $('.'+accContainer).stop().animate({
                     bottom: offsetElementHeight
                 }, 500, "swing");
             } else {
                 aperto = 1;
+                console.log('valore di aperto: '+aperto);
                 event.stopPropagation();
                 $('.'+accContainer).stop().animate({
                     bottom: -(accContainerHeight - offsetElementHeight)
@@ -148,11 +151,15 @@ $.fn.centerElement = function () {
 $(document).ready(function(){
     $('#a-middle').centerElement();
     $.fn.sepLine('first-divider', 'swiper-container', 'accessori');
-    /* controllo posizione e dimensionamento spritespin borse */
     $.fn.yammHeight('navbar-nav', 'yamm-content','riepilogo')
     $('.accessori').animate({opacity:'1'}, 1000, function() {
         $.fn.animateAccessoriBar('accessori','riepilogo','accessori-trigger','trigger');
         $('#a-middle').animate({opacity:'1'}, 1000)
+        // $('.swiper-slide a').click(function() {
+        //     $.fn.animateAccessoriBar('accessori','riepilogo','swiper-slide','trigger');
+        //     // alert('click');
+        //
+        // })
     });
 });
 
@@ -160,8 +167,5 @@ $(window).resize(function(){
     $('#a-middle').centerElement();
     $.fn.sepLine('first-divider', 'swiper-container', 'accessori');
     $.fn.yammHeight('navbar-nav', 'yamm-content','riepilogo')
-
-
     $.fn.animateAccessoriBar('accessori','riepilogo','accessori-trigger','notrigger');
-
 });

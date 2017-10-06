@@ -377,6 +377,7 @@ a.link {
     // left: auto;
     box-shadow: 0px 0px 0px transparent;
     border: solid 1px $standard-border-color;
+    padding: 0;
 }
 
 /* stilizzazione tabs */
@@ -978,17 +979,35 @@ a.link {
         //
         // }
     }
+    // .accessori-trigger {
+    //     display: block;
+    //     background: #fff;
+    //     border: solid 1px $standard-border-color;
+    //     // border-radius: 10px 10px 0 0;
+    //     position: absolute;
+    //     bottom: 100%;
+    //     right: -1px;
+    //     height: 40px;
+    //     width: 40px;
+    //     // margin-left: -37px;
+    // }
     .accessori-trigger {
         display: block;
-        background: #fff;
-        border: solid 1px $standard-border-color;
-        border-radius: 10px 10px 0 0;
+        // background: #fff;
+        // border: solid 1px $standard-border-color;
+        // border-radius: 10px 10px 0 0;
         position: absolute;
         bottom: 100%;
         left: 50%;
-        height: 30px;
-        width: 100px;
-        margin-left: -50px;
+        height: 40px;
+        width: 74px;
+        margin-left: -37px;
+        &.aperto {
+            background: transparent url('../images/accessori-trigger.png') no-repeat 0 0;
+        }
+        &.chiuso {
+            background: transparent url('../images/accessori-trigger.png') no-repeat 0 -40px;
+        }
     }
     .riepilogo {
         position: absolute;
