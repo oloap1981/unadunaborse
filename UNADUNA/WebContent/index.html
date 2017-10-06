@@ -376,8 +376,8 @@
                 </div>
             </div>
         </nav>
-        <div ng-show="contr.visibleManager.loaderVisible" style="position: absolute;width: 100%; height: 100%;  z-index: 100; margin-top:80px; margin-left:20px">
-            <div style="color: #ccc" class="la-ball-grid-pulse la-1x">
+        <div ng-show="contr.visibleManager.loaderVisible" style="position: absolute;width: 100%; height: 100%;  z-index: 100;background-color: rgba(255,255,255,.75)">
+            <div style="color: #ccc;top: 50%; left: 50%; margin-left: -31px; margin-top: -31px;" class="la-ball-grid-pulse la-2x">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -393,7 +393,7 @@
             <div ng-show="!contr.visibleManager.spinnerVisible"><img alt="" src="images/base-rounded-3d.png" style="width:100%"></div>
             <div ng-show="contr.visibleManager.spinnerVisible" id="spritespin"></div>
         </div>
-        <div class="accessori">
+        <div class="accessori" style="opacity: 0;">
             <a href="#" class="accessori-trigger aperto"></a>
             <div class="container">
                 <div class="row">
